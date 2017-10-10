@@ -1,6 +1,6 @@
- 
+
 #back{
-    
+
    height:100%;
   width:100%;
   position:fixed;
@@ -24,7 +24,7 @@
     z-index:-10;
     width:50%;
   opacity: 0.6;
-    
+
 }
 
 .container {
@@ -38,6 +38,10 @@
 
 
 .hidden{
-    display: 
+    display:
 }
+#objectimg{
+  height:370px;
+  width:100%;
 
+}

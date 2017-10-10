@@ -5,6 +5,7 @@ var visual_recognition = watson.visual_recognition({
   version: 'v3',
   version_date: '2016-05-20'
 });
+var result="Biodegradable";
 
 
 router.get('/',function(req,res)
@@ -19,19 +20,20 @@ router.post('/',function(req, res)
 {
 
   var body = req.body.imgdata;
+  console.log(body);
   base64Data = body.replace(/^data:image\/png;base64,/,""),
   binaryData = new Buffer(base64Data, 'base64').toString('binary');
 
-  require("fs").writeFile("out.png", binaryData, "binary", function(err) {
+  require("fs").writeFile("public/assets/out.png", binaryData, "binary", function(err) {
   if(err){
-    console.log("Error occurred");
+    console.log(err);
   }
   else{
     var ans=[];
     var nonBio = ['bottle','plastic','flask','thermal','bags', 'bag', 'water bottle', 'mobile', 'mobiles'];
 
     var params = {
-      images_file: require('fs').createReadStream('out.png')
+      images_file: require('fs').createReadStream('public/assets/out.png')
 
     };
 
@@ -49,7 +51,7 @@ router.post('/',function(req, res)
     }
       );
       checkAns();
-
+      console.log(result);
       }
     });
     var test =['black','coal'];
@@ -62,11 +64,13 @@ element.forEach(function(ele)
 {
   if(test.includes(ele))
   {
-    console.log('milgya');
+    result="Non-Biodegradable";
+
   }
 }
 
 );
+
 
 }
 
@@ -79,29 +83,101 @@ element.forEach(function(ele)
 
 }
 );
-router.get('/checktype',function(req,res)
+router.get('/data',function(req,res)
+{
+  res.send(result);
+});
+router.get('/options', function(req,res)
 {
 
- res.render('index');
+res.render('buttons');
 
+}
+);
 
-});
-
-router.get('/searchtoilet',function(req,res)
+router.post('/urldata', function(req,res)
 {
 
- res.render('index');
+var data = req.body.inputdata;
 
+var ans=[];
+var nonBio = ['bottle','plastic','flask','thermal','bags', 'bag', 'water bottle', 'mobile', 'mobiles'];
 
+var params = {
+  url:data
+
+};
+
+visual_recognition.classify(params, function(err, res) {
+  if (err)
+    console.log(err);
+  else
+  {
+    var apiData = res;
+    console.log(JSON.stringify(res, null, 2));
+    apiData.images[0].classifiers[0].classes.forEach(function(data)
+  {
+   ans.push(data.class.split(" "));
+
+}
+  );
+  checkAns();
+  console.log(result);
+  }
 });
+var test =['black','coal'];
+function checkAns()
+{
+  console.log(ans);
+  ans.forEach(function(element)
+{
+element.forEach(function(ele)
+{
+if(test.includes(ele))
+{
+result="Non-Biodegradable";
 
-router.get('/query',function(req,res)
+}
+}
+
+);
+
+
+}
+
+);
+}
+
+
+
+}
+
+);
+
+router.post('/pathdata', function(req,res)
 {
 
- res.render('index');
+var data = req.body;
+console.log(data);
 
+}
+);
 
-});
+// router.get('/searchtoilet',function(req,res)
+// {
+//
+//  res.render('index');
+//
+//
+// });
+//
+// router.get('/query',function(req,res)
+// {
+//
+//  res.render('index');
+//
+//
+// });
 
 router.get('/objectdetect',function(req,res)
 {
