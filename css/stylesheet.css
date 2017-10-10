@@ -1,0 +1,37 @@
+ 
+#back{
+    
+   height:100%;
+  width:100%;
+  background:rgba(0, 0, 0, 1);
+  position:fixed;
+  left:0;
+  top:0;
+    z-index: 998;  
+}
+
+
+
+#body{
+   transition: 0.5s;
+}
+
+#col{
+    z-index:-10;
+    width:50%;
+  opacity: 0.6;
+    
+}
+
+.container {
+    display: inline-block;
+    cursor: pointer;
+   padding-top:10px;
+    padding-left: 0;
+    z-index: 2;
+}
+
+
+
+
+
