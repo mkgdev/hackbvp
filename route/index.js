@@ -46,6 +46,15 @@ router.get('/query',function(req,res)
 
 });
 
+router.get('/objectdetect',function(req,res)
+{
+
+
+  res.render('checktype');
+}
+
+);
+
 
 
 
