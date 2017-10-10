@@ -9,8 +9,8 @@
 
 <body id="back">
     </body>
-        
-   
+
+
 
 
 
@@ -25,42 +25,42 @@
              <h4>Waste-San</h4>
             A Webapp for waste segregation and sanitation
             <br>
-            
-            
+
+
              <video id="video" height="30%" width="50%" autoplay></video>
-             
+
              <br>
-             
+
              </div>
              </div>
-             
-          <canvas id="canvas" ></canvas> 
+
+          <canvas id="canvas" ></canvas>
           <button id="submit">Submit</button>
-   
+
       </div>
-       
+
    </div>
-       
-    
 
 
 
 
 
 
-    
+
+
+
 <br>
 
 
 
-  
- 
+
+
  <script>
-     
+
      var video = document.getElementById('video');
      var subbtn=document.getElementById("submit");
      var canvas=document.getElementById("canvas");
-     
+
      navigator.getUserMedia = navigator.getUserMedia ||
                          navigator.webkitGetUserMedia ||
                          navigator.mozGetUserMedia;
@@ -68,7 +68,7 @@
 if (navigator.getUserMedia) {
    navigator.getUserMedia({ audio: true, video: true },
       function(stream) {
-         
+
          video.srcObject = stream;
 
       },
@@ -81,14 +81,20 @@ if (navigator.getUserMedia) {
 }
 
      subbtn.addEventListener('click',function(){
-         
+
          var cont=canvas.getContext('2d');
          cont.drawImage(video,0,0,canvas.width,canvas.height)
          var imgdata=canvas.toDataURL();
          console.log(imgdata);
+
+         $.post( "/",{imgdata}, function( data,status ) {
+           console.log(data);
+           console.log(status);
+     }
+     );
              })
-     
- </script>   
+
+ </script>
 
 
 
@@ -101,10 +107,10 @@ if (navigator.getUserMedia) {
         <h5>Waste-san (purposely sounding like watson) is a webapp which provides the faclility to check the image for
         the type of material it is. Precisely speaking, checks that if a material is Biodegradable or non bio degradable.
         </h5>
-       
+
 <p style="font-size:20px">
         It has three facilites.
-      </p>  
+      </p>
         <ul style="font-size:15px">
             <li>Check Type
             </li>
@@ -115,7 +121,7 @@ if (navigator.getUserMedia) {
                 Request
             </li>
         </ul>
-        
+
     </div>
     <div class="card-tabs">
       <ul class="tabs tabs-fixed-width">
@@ -126,52 +132,52 @@ if (navigator.getUserMedia) {
     </div>
     <div class="card-content grey lighten-2 center-align">
       <div id="test4">Check type<br>
-         
+
            <h6>
                  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum<br>
                   lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum<br>
                    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum<br>
                     lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum<br>
-                    
+
               </h6>
           <a class="btn waves-effect hoverable tooltipped" href="checktype.html" target="_blank">
-            
+
             CHECK TYPE
           </a>
-          
+
    </div>
       <div id="test5">Toilet Location<br>
-         
+
           <h6>
                  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum<br>
                   lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum<br>
                    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum<br>
                     lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum<br>
-                    
+
               </h6>
            <a class="btn waves-effect hoverable tooltipped" href="checktype.html" target="_blank">
-            
+
            Locate a nearby Toilet
           </a>
 
    </div>
-     
-        
+
+
          <div id="test6">Query<br>
-         
+
           <h6>
                  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum<br>
                   lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum<br>
                    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum<br>
                     lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum<br>
-                    
+
               </h6>
-            
+
            <a class="btn waves-effect hoverable tooltipped" href="checktype.html" target="_blank">
-            
+
             Query
           </a>
-          
+
    </div>
     </div>
        </div>
@@ -181,16 +187,15 @@ if (navigator.getUserMedia) {
 -->
 
 
- 
- <script src="javascript/particles.js"></script>  
-<link rel="stylesheet" href="css/stylesheet.css" type="text/css">         
-      <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">      
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>   
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>    
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
-    <script src="javascript/script.js"></script>
+
+ <!-- <script src="javascript/particles.js"></script> -->
+<link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="javascript/script.js"></script> -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
 
 </html>
-

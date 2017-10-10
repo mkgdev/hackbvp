@@ -1,3 +1,6 @@
+
+
+
 /*!
  * Start Bootstrap - Createive v4.0.0-beta (http://startbootstrap.com/template-overviews/creative)
  * Copyright 2013-2017 Start Bootstrap
@@ -14,6 +17,9 @@ body {
 
 hr {
     max-width: 50px;
+
+
+
     border-width: 3px;
     border-color: #f05f40
 }
@@ -188,7 +194,7 @@ header.masthead {
     min-height: auto;
     text-align: center;
     color: #fff;
-    background-image: url(../img/back.png);
+    background-image: url(../../assets/back.png);
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;

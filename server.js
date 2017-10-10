@@ -2,14 +2,14 @@ var express = require('express');
 var app     = express();
 var session = require('express-session');
 var indexRoute = require('./route/index.js');
-var watson = require('watson-developer-cloud');
+// var watson = require('watson-developer-cloud');
 var fs = require('fs');
 var bodyParser = require('body-parser');
-var visual_recognition = watson.visual_recognition({
-  api_key: '36fe4dec42a5b39493c0768911d6550553843427',
-  version: 'v3',
-  version_date: '2016-05-20'
-});
+// var visual_recognition = watson.visual_recognition({
+//   api_key: '36fe4dec42a5b39493c0768911d6550553843427',
+//   version: 'v3',
+//   version_date: '2016-05-20'
+// });
 
 
 app.set('view engine','ejs');
@@ -21,9 +21,9 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: true }
 }));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '5mb' }));
+// app.use(bodyParser.json({limit: '5mb'}));
 
-var nonBio = ['bottle','plastic','flask','thermal','bags', 'bag', 'water bottle', 'mobile', 'mobiles'];
 
 
 
@@ -38,55 +38,38 @@ var nonBio = ['bottle','plastic','flask','thermal','bags', 'bag', 'water bottle'
 //**********************************
 //         IBM WATSON
 //***************************
-var ans=[];
-
-var params = {
-url:"https://img.tradeindia.com/fp/0/209/empty-plastic-bottles-561.jpg"
-};
-
-visual_recognition.classify(params, function(err, res) {
-  if (err)
-    console.log(err);
-  else
-  {
-    var apiData = res;
-    console.log(JSON.stringify(res, null, 2));
-    apiData.images[0].classifiers[0].classes.forEach(function(data)
-  {
-   ans.push(data.class.split(" "));
-
-}
-  );
-  printAns();
-
-  }
-});
-
-function printAns()
-{
-  console.log(ans);
-}
-
-
-//*****************************
-
-//*******************************************
-//            Checking the API data
-//******************************************
-
-// apiData.images.classifiers.forEach(function(obj)
-// {
+// var ans=[];
 //
-//   console.log(obj);
+// var params = {
+// url:"https://img.tradeindia.com/fp/0/209/empty-plastic-bottles-561.jpg"
+// };
+//
+// visual_recognition.classify(params, function(err, res) {
+//   if (err)
+//     console.log(err);
+//   else
+//   {
+//     var apiData = res;
+//     console.log(JSON.stringify(res, null, 2));
+//     apiData.images[0].classifiers[0].classes.forEach(function(data)
+//   {
+//    ans.push(data.class.split(" "));
+//
 // }
+//   );
+//   printAns();
+//
+//   }
+// });
+//
+// function printAns()
+// {
+//   console.log(ans);
+// }
+//
 
+// *****************************
 
-
-// );
-
-
-
-//********************************************
 
 
 
