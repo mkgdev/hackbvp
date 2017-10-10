@@ -3,12 +3,14 @@
 #### Waste-san(Purposely sounding like Watson )
 
 # Description
-This webapp gives you the facility to segergate various daily life wastes into two categories:-
-Biodegradable
-Non-Biodegradable using various technologies.....
+This webapp gives you the facility to segregate various daily life wastes into two categories:-
+* Biodegradable
+* Non-Biodegradable
+
+using various technologies.....
 
 ### Application
-The webapp basically offers three facilities:-
+The webapp basically offers two facilities:-
 1. Object TypeChecker
 2. Toilet Locator 
 
@@ -25,7 +27,8 @@ The output gives the sent image and also the type of material whether it is Biod
 
 
 ### Toilet Locator
-This give the user the ability to locate toilets anywhere around on the map. Upto a certain radius it cna be seen if there is a toilet or not. This application can have multile uses. The government can see where there is a need of a toilet & take up necessary actions to eradicate the issue.
+This give the user the ability to locate toilets anywhere around on the map. Upto a certain radius it cna be seen if there is a toilet or not. This application can have multile uses.The app can be used to loacte the need of a toilet hence supporting Swaach Bharat Mission. The government can see where there is a need of a toilet & take up necessary actions to eradicate the issue.
+The app enmarsk a circle of certain radius indicating need of toilet outside the circle.
 
 
 ### Technologies stack
