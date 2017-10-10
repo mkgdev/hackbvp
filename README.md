@@ -27,8 +27,8 @@ The output gives the sent image and also the type of material whether it is Biod
 
 
 ### Toilet Locator
-This give the user the ability to locate toilets anywhere around on the map. Upto a certain radius it cna be seen if there is a toilet or not. This application can have multile uses.The app can be used to loacte the need of a toilet hence supporting Swaach Bharat Mission. The government can see where there is a need of a toilet & take up necessary actions to eradicate the issue.
-The app enmarsk a circle of certain radius indicating need of toilet outside the circle.
+This gives the user the ability to locate toilets anywhere on the map. Upto a certain radius it can be seen if there is a toilet or not. This application can have multiple uses.The app can be used to loacte the need of a toilet hence supporting Swaach Bharat Mission. The government can see where there is a need of a toilet & take up necessary actions to eradicate the issue.
+The app enmarks a circle of certain radius indicating need of toilet outside the circle.
 
 
 ### Technologies stack
