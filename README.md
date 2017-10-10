@@ -1,6 +1,6 @@
 # The-Mavericks
 
-##Waste-san(Purposely sounding like Watson )
+## Waste-san(Purposely sounding like Watson )
 
 ### Description
 This webapp gives you the facility to segregate various daily life wastes into two categories:-
