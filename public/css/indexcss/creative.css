@@ -147,7 +147,7 @@ header.masthead {
   min-height: auto;
   text-align: center;
   color: white;
-  background-image: url("../img/back.png");
+  background-image: url("../../assets/back.png");
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -188,7 +188,7 @@ header.masthead {
           margin-right: auto;
           margin-left: auto; }
           header.masthead .header-content .header-content-inner h1 {
-            font-size: 50px; 
+            font-size: 50px;
           color: #020f13;}
           header.masthead .header-content .header-content-inner p {
             font-size: 18px;

@@ -86,6 +86,12 @@ if (navigator.getUserMedia) {
          cont.drawImage(video,0,0,canvas.width,canvas.height)
          var imgdata=canvas.toDataURL();
          console.log(imgdata);
+
+         $.post( "/",{imgdata}, function( data,status ) {
+           console.log(data);
+           console.log(status);
+     }
+     );
              })
 
  </script>
@@ -182,13 +188,13 @@ if (navigator.getUserMedia) {
 
 
 
- <script src="javascript/particles.js"></script>
-<link rel="stylesheet" href="css/stylesheet.css" type="text/css">         
+ <!-- <script src="javascript/particles.js"></script> -->
+<link rel="stylesheet" href="css/stylesheet.css" type="text/css">
       <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="javascript/script.js"></script>
+    <!-- <script src="javascript/script.js"></script> -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
 
