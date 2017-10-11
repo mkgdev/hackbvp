@@ -44,7 +44,10 @@ function previewFile() {
    $.post('/',{imgdata},function(){
      console.log("successfull")
 
-     $.ajax({url: '/data'}).done(function (data) {
+     
+   })
+      setInterval(function(){
+          $.ajax({url: '/data'}).done(function (data) {
      console.log(data);
      $('.btnresult').html(data);
 
@@ -53,8 +56,8 @@ function previewFile() {
 
 
    });
-   })
-
+      },1000);
+      
 
   }, false);
 

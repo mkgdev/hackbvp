@@ -34,16 +34,19 @@ if (navigator.getUserMedia) {
          cont.drawImage(video,0,0,canvas.width,canvas.height)
          var imgdata=canvas.toDataURL();
          modalimg.src=imgdata;
-         console.log(imgdata);
-
-         $.post('/',{imgdata},function(data,err){
-           console.log(data);
-           console.log(err);
-         })
-         $.ajax({url: '/data'}).done(function (data) {
+         
+         
+         
+         $.post('/',{imgdata})
+         
+         setInterval(function(){
+                    $.ajax({url: '/data'}).done(function (data) {
     console.log(data);
     $('.result').html(data);
 });
-
-
+          
        });
+
+         },1000);
+         
+  

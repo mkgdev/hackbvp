@@ -6,7 +6,8 @@ var visual_recognition = watson.visual_recognition({
   version_date: '2016-05-20'
 });
 var result="Biodegradable";
-
+var nonBio = ['bottle','plastic','flask','thermal','bags', 'bag', 'water bottle', 'mobile', 'mobiles','wire','metal','faceplate','electronic','electronics','curtains','wall','car','charger','glass','laptop',
+                 'vehicle','chair','table','wires'];
 
 router.get('/',function(req,res)
 {
@@ -30,7 +31,7 @@ router.post('/',function(req, res)
   }
   else{
     var ans=[];
-    var nonBio = ['bottle','plastic','flask','thermal','bags', 'bag', 'water bottle', 'mobile', 'mobiles'];
+    
 
     var params = {
       images_file: require('fs').createReadStream('public/assets/out.png')
@@ -54,7 +55,7 @@ router.post('/',function(req, res)
       console.log(result);
       }
     });
-    var test =['black','coal'];
+    
     function checkAns()
     {
       console.log(ans);
@@ -62,7 +63,7 @@ router.post('/',function(req, res)
 {
 element.forEach(function(ele)
 {
-  if(test.includes(ele))
+  if(nonBio.includes(ele))
   {
     result="Non-Biodegradable";
 
@@ -101,7 +102,8 @@ router.post('/urldata', function(req,res)
 var data = req.body.inputdata;
 
 var ans=[];
-var nonBio = ['bottle','plastic','flask','thermal','bags', 'bag', 'water bottle', 'mobile', 'mobiles'];
+
+
 
 var params = {
   url:data
@@ -125,7 +127,7 @@ visual_recognition.classify(params, function(err, res) {
   console.log(result);
   }
 });
-var test =['black','coal'];
+
 function checkAns()
 {
   console.log(ans);
@@ -133,7 +135,7 @@ function checkAns()
 {
 element.forEach(function(ele)
 {
-if(test.includes(ele))
+if(nonBio.includes(ele))
 {
 result="Non-Biodegradable";
 
@@ -187,8 +189,23 @@ router.get('/objectdetect',function(req,res)
 }
 
 );
+router.get('/show',function(req,res)
+{
 
+res.render('show',{result:result});
+}
+          
+);
 
+router.get('/locator',function(req,res)
+{
+res.render('map');
+}
+          
+);
 
-
+router.get('/contact',function(req,res){
+          res.render('contact');
+          
+});
 module.exports = router;
